@@ -20,5 +20,5 @@ output "bucket_versioning_statuses" {
 
 output "bucket_encryption_configurations" {
   description = "The server-side encryption configurations of the S3 buckets."
-  value       = { for k, v in aws_s3_bucket_server_side_encryption_configuration.bucket_sse : k => v.rule[0].apply_server_side_encryption_by_default[0] }
+  value       = { for k, v in aws_s3_bucket_server_side_encryption_configuration.bucket_sse : k => v.rule[0].apply_server_side_encryption_by_default }
 }
