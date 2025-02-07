@@ -1,0 +1,40 @@
+name: Terraform Docs and Update Tag
+on:
+  push:
+    branches:
+      - main
+jobs:
+  tag_module:
+    name: Tag Module
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          reposirory: matthew-akinola/terraform-aws-matt-ec2-module
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Generate TF Docs
+        uses: terraform-docs/gh-actions@v1.1.0
+        with:
+          working-dir: .
+          output-file: README.md
+          output-method: replace
+          git-push: true
+          recursive: true
+
+      - name: BUmp version and push Tag
+        id: bump_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          relsease_branch: main
+          create_annotated_tag: true
+
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.bump_version.outputs.new_tag }}
+          name: Release ${{ steps.bump_version.outputs.new_tag }}
+          body: ${{ steps.bump_version.outputs.changelog }}
