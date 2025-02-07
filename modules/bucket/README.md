@@ -34,8 +34,5 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_bucket_arns"></a> [bucket\_arns](#output\_bucket\_arns) | The ARNs of the created S3 buckets. |
-| <a name="output_bucket_encryption_configurations"></a> [bucket\_encryption\_configurations](#output\_bucket\_encryption\_configurations) | The server-side encryption configurations of the S3 buckets. |
 | <a name="output_bucket_names"></a> [bucket\_names](#output\_bucket\_names) | The names of the created S3 buckets. |
-| <a name="output_bucket_policies"></a> [bucket\_policies](#output\_bucket\_policies) | The policies applied to the S3 buckets. |
-| <a name="output_bucket_versioning_statuses"></a> [bucket\_versioning\_statuses](#output\_bucket\_versioning\_statuses) | The versioning statuses of the S3 buckets. |
 <!-- END_TF_DOCS -->
