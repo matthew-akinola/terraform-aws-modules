@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          reposirory: matthew-akinola/terraform-aws-matt-ec2-module
+          reposirory: matthew-akinola/terraform-aws-modules
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Generate TF Docs
