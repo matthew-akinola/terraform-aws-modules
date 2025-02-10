@@ -31,10 +31,3 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           relsease_branch: main
           create_annotated_tag: true
-
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.bump_version.outputs.new_tag }}
-          name: Release ${{ steps.bump_version.outputs.new_tag }}
-          body: ${{ steps.bump_version.outputs.changelog }}
